@@ -3,10 +3,18 @@ import {
 
 } from "react-router";
 import Homelayout from "../layouts/Homelayout";
+import Home from "../pages/Home";
+import Categori from "../pages/Categori";
 const router = createBrowserRouter([
   {
     path: "/",
-    Component:Homelayout
+    Component:Homelayout,
+    children:[
+        {path: "" , Component: Home},
+        {path: "/catagori/:id" ,
+         Component: Categori , loader:() => fetch("/news.json")   },
+        
+    ]
   },
   {
     path: "/",
@@ -17,7 +25,7 @@ const router = createBrowserRouter([
     element: <div>Hello World</div>,
   },
   {
-    path: "/**",
+    path: "/*",
     element: <div>Error 404</div>,
   },
 ]);
