@@ -5,6 +5,9 @@ import {
 import Homelayout from "../layouts/Homelayout";
 import Home from "../pages/Home";
 import Categori from "../pages/Categori";
+import Login from "../components/Login";
+import Reagister from "../components/Reagister";
+import AuthLaut from "../layouts/AuthLaut";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,8 +20,12 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/",
-    element: <div>Hello World</div>,
+    path: "/auth",
+    Component:AuthLaut,
+    children:[
+      { path:"/auth/login" , Component:Login},
+      { path:"/auth/registation" , Component:Reagister}
+    ]
   },
   {
     path: "/",
