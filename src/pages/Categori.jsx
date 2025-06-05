@@ -9,7 +9,7 @@ const Categori = () => {
 
     const {id}= useParams();
     const data = useLoaderData()
-    console.log(id )
+ 
      const[catagoriNews , setcatagoriNews] = useState([])
  
     useEffect(() =>{
@@ -23,7 +23,7 @@ const Categori = () => {
             
         }else{
                  const filterNews = data.filter(news => news.category_id == id);
-           console.log(filterNews)
+          
            setcatagoriNews(filterNews)
         }
            
